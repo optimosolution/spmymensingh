@@ -60,7 +60,17 @@
             </div>
             <div class="col-md-7">
                 <section class="home-post">
-                    <?php $this->get_latest_gbb_news(17); ?>
+                    <div style="height: 520px; overflow: auto;">
+                        <?php
+                        //$this->get_latest_gbb_news(17); 
+                        $array = Video::model()->findAll();
+                        foreach ($array as $key => $values) {
+                            echo '<div class = "col-lg-6 col-md-6 col-sm-6 col-xs-6">';
+                            echo '<iframe width="100%" height="280" src="//www.youtube.com/embed/' . $values['youtube_id'] . '" frameborder="0" allowfullscreen></iframe>';
+                            echo '</div>';
+                        }
+                        ?>
+                    </div>                    
                 </section>
             </div>
             <div class="col-md-5">
